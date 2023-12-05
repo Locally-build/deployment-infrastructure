@@ -16,20 +16,20 @@ jobs:
       BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
       REGION: us-east-2
       KEY_NAME: ${{ secrets.KEY_NAME }}
-      TF_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      TF_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      TF_aws_region: "us-east-2"
-      TF_aws_ami_id: "ami-09b2201fa15c4cb83"
-      TF_aws_availability_zone_index: 1
-      TF_use_intel: false
-      TF_use_m2_pro: false
-      TF_host_count: 1
-      TF_host_base_name: "builder"
-      TF_parallels_key: ${{ secrets.PARALLELS_KEY }}
-      TF_catalog_host: ${{ secrets.CATALOG_HOST }}
-      TF_catalog_username: ${{ secrets.CATALOG_USERNAME }}
-      TF_catalog_password: ${{ secrets.CATALOG_PASSWORD }}
-      TF_orchestrator: ${{ secrets.ORCHESTRATOR }}
+      TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      TF_VAR_aws_region: "us-east-2"
+      TF_VAR_aws_ami_id: "ami-09b2201fa15c4cb83"
+      TF_VAR_aws_availability_zone_index: 1
+      TF_VAR_use_intel: false
+      TF_VAR_use_m2_pro: false
+      TF_VAR_host_count: 1
+      TF_VAR_host_base_name: "builder"
+      TF_VAR_parallels_key: ${{ secrets.PARALLELS_KEY }}
+      TF_VAR_catalog_host: ${{ secrets.CATALOG_HOST }}
+      TF_VAR_catalog_username: ${{ secrets.CATALOG_USERNAME }}
+      TF_VAR_catalog_password: ${{ secrets.CATALOG_PASSWORD }}
+      TF_VAR_orchestrator: ${{ secrets.ORCHESTRATOR }}
 
     steps:
       - name: Checkout code
@@ -44,7 +44,6 @@ jobs:
         run: terraform init -backend-config="bucket=${BUCKET_NAME}" -backend-config="region=${REGION}" -backend-config="key=${KEY_NAME}"
 
       - name: Terraform Plan
-
         run: terraform plan -out plan.out
 
       - name: Terraform Apply
