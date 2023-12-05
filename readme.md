@@ -27,6 +27,7 @@ For running the terraform script, you should:
     aws_availability_zone_index = 0 // the availability zone index, this is normally 0
     use_intel                   = false // do you want to deploy a x86 mac or a ARM one
     machines_count              = 1 // How many machines do you want to deploy
+    catalog
     ```
 
 
