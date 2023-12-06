@@ -21,7 +21,8 @@ resource "random_password" "admin_user" {
 }
 
 resource "parallels-desktop_auth" "security" {
-  host = "${parallels-desktop_deploy.deploy[0].api.host}:${parallels-desktop_deploy.deploy[0].api.port}"
+  count = var.host_count
+  host = "${parallels-desktop_deploy.deploy[count.index].api.host}:${parallels-desktop_deploy.deploy[count.index].api.port}"
 
   api_key {
     name   = "Terraform"
