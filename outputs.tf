@@ -18,3 +18,7 @@ output "instance_public_ip" {
 output "parallels-desktop_host" {
   value = [for host in parallels-desktop_deploy.deploy : "${host.api.host}:${host.api.port}"]
 }
+
+output "parallels-desktop_api_key" {
+  value = [for keys in parallels-desktop_auth.security : keys.api_key[0].api_key]
+}
