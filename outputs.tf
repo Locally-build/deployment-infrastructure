@@ -21,4 +21,5 @@ output "parallels-desktop_host" {
 
 output "parallels-desktop_api_key" {
   value = [for keys in parallels-desktop_auth.security : keys.api_key[0].api_key]
+  sensitive = true
 }
