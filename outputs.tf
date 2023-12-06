@@ -15,3 +15,6 @@ output "instance_public_ip" {
   value = [for instance in aws_instance.mac : instance.public_ip]
 }
 
+output "parallels-desktop_host" {
+  value = [for host in parallels-desktop_deploy.deploy : "${host.api.host}:${host.api.port}"]
+}
