@@ -24,7 +24,7 @@ jobs:
       TF_VAR_use_intel: false
       TF_VAR_use_m2_pro: false
       TF_VAR_host_count: 1
-      TF_VAR_host_base_name: "builder"
+      TF_VAR_host_base_name: "builder_sonoma"
       TF_VAR_parallels_key: ${{ secrets.PARALLELS_KEY }}
       TF_VAR_catalog_host: ${{ secrets.CATALOG_HOST }}
       TF_VAR_catalog_username: ${{ secrets.CATALOG_USERNAME }}
