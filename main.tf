@@ -6,7 +6,7 @@ resource "aws_key_pair" "generated_key" {
 resource "aws_ec2_host" "mac" {
   count = var.host_count
 
-  instance_type     = var.use_intel ? "mac1.metal" : var.use_m2_pro ? "mac2-m2pro.metal" : "mac2.metal"
+  instance_type     = var.instance_type != "" ? var.instance_type : var.use_intel ? "mac1.metal" : var.use_m2_pro ? "mac2-m2pro.metal" : "mac2.metal"
   availability_zone = data.aws_availability_zones.available.names[var.aws_availability_zone_index]
   host_recovery     = "off"
   auto_placement    = "on"
