@@ -17,7 +17,7 @@ jobs:
       TF_VAR_aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
       TF_VAR_aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       TF_VAR_aws_region: "us-east-2"
-      TF_VAR_aws_ami_id: "ami-09b2201fa15c4cb83"
+      TF_VAR_aws_ami_id: "ami-0fb1a8ce1a0e727d8"
       TF_VAR_aws_availability_zone_index: 1
       TF_VAR_use_intel: false
       TF_VAR_use_m2_pro: false
